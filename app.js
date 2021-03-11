@@ -30,7 +30,7 @@ app.use('/users', userRouter);
 // static middleware
 // app.use(express.static(path.join(__dirname, 'views')));
 
-//GET / 
+//GET /
 app.get("/", (req, res, next) => {
   res.redirect('/wiki');
 });
@@ -40,7 +40,7 @@ const PORT = 3000;
 // listen
 
 const init = async () => {
-  await db.sync({ force: true });
+  await db.sync();
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}!`);
   });

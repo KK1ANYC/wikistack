@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const db = new Sequelize("postgres://Alan@localhost:5432/wikistack", {
+const db = new Sequelize("postgres://localhost:5432/wikistack", {
   logging: false,
 });
 
@@ -12,6 +12,10 @@ const Page = db.define("page", {
     allowNull: false,
   },
 });
+
+// Page.beforeSave((userInstance, optionsObject) => {
+//   userInstance.slug = userInstance.title.replace(/\s+/g, "_").replace(/\W/g, "");
+// })
 
 const User = db.define("user", {
   name: { type: Sequelize.STRING, allowNull: false },
